@@ -4,12 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 @Entity
 public class Fabricante {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@TableGenerator(name="fabricante_generator", table="GERADOR_CODIGO", pkColumnName="ENTIDADE", 
+	valueColumnName="ALOCACAO", allocationSize=5)
+	@GeneratedValue(generator="fabricante_generator", strategy=GenerationType.TABLE)
 	private Long codigo;
 	private String nome;
 
@@ -20,7 +23,6 @@ public class Fabricante {
 
 	public Fabricante(String nome) {
 		super();
-		this.codigo = codigo;
 		this.nome = nome;
 	}
 
