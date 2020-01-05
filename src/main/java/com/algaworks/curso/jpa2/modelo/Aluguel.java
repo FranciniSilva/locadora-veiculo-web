@@ -38,7 +38,7 @@ public class Aluguel {
 		this.valorTotal = valorTotal;
 	}
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	@JoinColumn(name="codigo_apolice_seguro")
 	public ApoliceSeguro getApoliceSeguro() {
 		return apoliceSeguro;

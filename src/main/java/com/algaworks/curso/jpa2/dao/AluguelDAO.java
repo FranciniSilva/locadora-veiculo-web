@@ -14,7 +14,12 @@ public class AluguelDAO implements Serializable {
 	@Inject
 	private EntityManager manager;
 	
+	@Inject
+	private ApoliceSeguroDAO apoliceSeguroDAO;
+	
 	public void salvar(Aluguel aluguel) {
+	    apoliceSeguroDAO.salvar(aluguel.getApoliceSeguro());
+
 		manager.merge(aluguel);
 	}
 
