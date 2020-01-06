@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="apolice_seguro")
 public class Aluguel {
 
 	private Long codigo;
