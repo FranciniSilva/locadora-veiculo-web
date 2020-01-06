@@ -43,8 +43,8 @@ public class CarroDAO implements Serializable {
 	}
 
 	public Carro buscarCarroComAcessorios(Long codigo) {
-		return (Carro) manager.createQuery("select c from Carro c JOIN c.acessorios a where c.codigo = ?")
-				.setParameter(1, codigo)
+		return (Carro) manager.createQuery("select c from Carro c JOIN c.acessorios a where c.codigo = :codigo")
+				.setParameter("codigo", codigo)
 				.getSingleResult();
 	}
 	
